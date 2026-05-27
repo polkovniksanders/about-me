@@ -1,17 +1,8 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
 import { Resend } from 'resend';
 
-// ─── Env validation at module startup ─────────────────────────────────────────
-// Fail fast on misconfiguration rather than silent partial failure at send time
-
-const REQUIRED_ENV = ['RESEND_API_KEY', 'OWNER_EMAIL', 'FROM_EMAIL', 'ALLOWED_ORIGIN'] as const;
-for (const key of REQUIRED_ENV) {
-  if (!process.env[key]) {
-    throw new Error(`Missing required environment variable: ${key}`);
-  }
-}
-
-const resend = new Resend(process.env['RESEND_API_KEY'] as string);
+// Resend client — initialized lazily inside handler to avoid crash on cold start
+// if env vars are missing (would cause FUNCTION_INVOCATION_FAILED)
 
 // ─── Security helpers ─────────────────────────────────────────────────────────
 
@@ -174,6 +165,18 @@ function buildAutoReply(name: string): string {
 export default async function handler(req: VercelRequest, res: VercelResponse): Promise<void> {
   // 1. CORS (handles OPTIONS preflight)
   if (setCorsHeaders(req, res)) return;
+
+  // 2. Env check — return 500 instead of crashing the function
+  const missingEnv = ['RESEND_API_KEY', 'OWNER_EMAIL', 'FROM_EMAIL'].filter(
+    (key) => !process.env[key]
+  );
+  if (missingEnv.length > 0) {
+    console.error('[send-email] missing env vars:', missingEnv.join(', '));
+    res.status(500).json({ success: false, error: 'Server misconfiguration' });
+    return;
+  }
+
+  const resend = new Resend(process.env['RESEND_API_KEY'] as string);
 
   // 2. Method check
   if (req.method !== 'POST') {
