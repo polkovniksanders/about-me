@@ -1,0 +1,88 @@
+// SCSS compile-time constants (breakpoints, z-index)
+$breakpoints: (
+  'xs':  320px,
+  'sm':  768px,
+  'md':  1024px,
+  'lg':  1440px,
+);
+
+$z-layers: (
+  'base':   0,
+  'raised': 10,
+  'nav':    100,
+);
+
+@use 'sass:map';
+
+@mixin bp($name) {
+  @media (min-width: map.get($breakpoints, $name)) {
+    @content;
+  }
+}
+
+// CSS Custom Properties — runtime, themeable
+:root {
+  // Backgrounds (chromatic near-black — subtle blue tint, not flat gray)
+  --color-bg-base:      #0b0e14;
+  --color-bg-surface:   #111520;
+  --color-bg-elevated:  #181e2d;
+  --color-bg-overlay:   #1f2640;
+
+  // Borders
+  --color-border-subtle:  rgba(255, 255, 255, 0.06);
+  --color-border-default: rgba(255, 255, 255, 0.10);
+  --color-border-strong:  rgba(255, 255, 255, 0.18);
+
+  // Accent — teal-cyan (distinctive, not overused blue)
+  --color-accent:       #4fd1c5;
+  --color-accent-dim:   #2c9d94;
+  --color-accent-ghost: rgba(79, 209, 197, 0.10);
+  --color-accent-glow:  rgba(79, 209, 197, 0.20);
+
+  // Text
+  --color-text-primary:   #e8edf5;
+  --color-text-secondary: #8892a4;
+  --color-text-muted:     #4a5568;
+
+  // Semantic
+  --color-success: #48bb78;
+  --color-error:   #fc8181;
+
+  // Fonts
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', 'Courier New', monospace;
+
+  // Typography scale
+  --text-xs:   0.75rem;
+  --text-sm:   0.875rem;
+  --text-base: 1rem;
+  --text-lg:   1.125rem;
+  --text-xl:   1.25rem;
+  --text-2xl:  1.5rem;
+  --text-3xl:  1.875rem;
+  --text-hero: clamp(2.5rem, 6vw, 4.5rem);
+
+  // Spacing
+  --space-1:  0.25rem;
+  --space-2:  0.5rem;
+  --space-3:  0.75rem;
+  --space-4:  1rem;
+  --space-6:  1.5rem;
+  --space-8:  2rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+
+  --section-padding-y: clamp(4rem, 8vw, 7rem);
+  --container-max:     1200px;
+  --container-padding: clamp(1rem, 4vw, 2rem);
+
+  // Gradients
+  --gradient-hero:   linear-gradient(135deg, #0b0e14 0%, #0f1624 60%, #131c2e 100%);
+  --gradient-accent: linear-gradient(135deg, #4fd1c5, #63b3ed);
+
+  // Transitions
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --duration-fast:   200ms;
+  --duration-normal: 350ms;
+  --duration-slow:   500ms;
+}

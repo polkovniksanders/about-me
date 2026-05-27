@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Вячеслав Попов — Fullstack Engineer. Telegram Mini Apps, AI-интеграции, продакшн веб-приложения. Открыт к коммерческим проектам.">
+  <title>Вячеслав Попов — Fullstack Engineer</title>
+
+  <!-- Dark theme flash prevention — must run before stylesheet -->
+  <script>
+    (function () {
+      var stored = localStorage.getItem('theme');
+      var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      document.documentElement.setAttribute('data-theme', stored || (prefersDark ? 'dark' : 'light'));
+    })();
+  </script>
+
+  <!-- Font preload — only above-fold weights -->
+  <link rel="preload" href="/assets/fonts/inter-400.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/assets/fonts/inter-600.woff2" as="font" type="font/woff2" crossorigin>
+
+  <link rel="stylesheet" href="/styles/main.scss">
+</head>
+<body>
+  <!-- SVG Sprite -->
+  <svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+    <symbol id="icon-telegram" viewBox="0 0 24 24">
+      <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.248-1.97 9.289c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12L7.88 14.07l-2.968-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.944.516z"/>
+    </symbol>
+    <symbol id="icon-github" viewBox="0 0 24 24">
+      <path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/>
+    </symbol>
+    <symbol id="icon-arrow-down" viewBox="0 0 24 24">
+      <path d="M12 16l-6-6h12l-6 6z"/>
+    </symbol>
+    <symbol id="icon-check" viewBox="0 0 24 24">
+      <path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    </symbol>
+    <symbol id="icon-alert" viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" fill="none"/>
+      <line x1="12" y1="8" x2="12" y2="12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      <circle cx="12" cy="16" r="1" fill="currentColor"/>
+    </symbol>
+  </svg>
+
+  <!-- Skip to content -->
+  <a href="#main-content" class="skip-link">Перейти к содержимому</a>
+
+  <!-- Navigation -->
+  <nav class="nav" aria-label="Основная навигация">
+    <div class="nav__logo">
+      <span class="nav__logo-text">slava.dev</span>
+    </div>
+    <ul class="nav__links" role="list">
+      <li><a href="#about" class="nav__link">обо мне</a></li>
+      <li><a href="#approach" class="nav__link">подход</a></li>
+      <li><a href="#cases" class="nav__link">проекты</a></li>
+      <li><a href="#contacts" class="nav__link">контакты</a></li>
+    </ul>
+  </nav>
+
+  <main id="main-content">
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero" aria-label="Главная">
+      <div class="hero__content">
+        <div class="hero__availability" aria-label="Статус: открыт к проектам">
+          Открыт к проектам
+        </div>
+        <h1 class="hero__name">Вячеслав Попов</h1>
+        <p class="hero__role">
+          Fullstack Engineer
+          <span class="separator" aria-hidden="true">·</span>
+          Telegram Mini Apps
+          <span class="separator" aria-hidden="true">·</span>
+          AI Integrations
+        </p>
+        <p class="hero__metric">
+          <span>100% Lighthouse Performance</span> · <span>−40% время операций</span> у клиентов
+        </p>
+        <a href="#contacts" class="btn btn--primary hero__cta">
+          Написать мне
+        </a>
+      </div>
+      <div class="hero__scroll-hint" aria-hidden="true">
+        <svg width="20" height="20"><use href="#icon-arrow-down"/></svg>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section" id="about" aria-label="Обо мне" data-animate>
+      <div class="container">
+        <p class="section-label">// about</p>
+        <h2 class="section-title">Обо мне</h2>
+
+        <div class="about__grid">
+          <!-- Stack -->
+          <div class="about__stack" data-animate>
+            <h3 class="about__subtitle">Стек</h3>
+
+            <div class="stack">
+              <div class="stack__group">
+                <p class="stack__label">Frontend</p>
+                <div class="stack__grid">
+                  <span class="stack__item">React</span>
+                  <span class="stack__item">Next.js</span>
+                  <span class="stack__item">TypeScript</span>
+                  <span class="stack__item">Redux Toolkit</span>
+                  <span class="stack__item">Tailwind CSS</span>
+                  <span class="stack__item">Vite</span>
+                </div>
+              </div>
+
+              <div class="stack__group">
+                <p class="stack__label">Backend</p>
+                <div class="stack__grid">
+                  <span class="stack__item">Node.js</span>
+                  <span class="stack__item">Express</span>
+                  <span class="stack__item">PostgreSQL</span>
+                  <span class="stack__item">Prisma</span>
+                  <span class="stack__item">WebSockets</span>
+                </div>
+              </div>
+
+              <div class="stack__group">
+                <p class="stack__label">Специализация</p>
+                <div class="stack__grid">
+                  <span class="stack__item stack__item--highlight">Telegram Mini Apps</span>
+                  <span class="stack__item stack__item--highlight">Anthropic Claude</span>
+                  <span class="stack__item stack__item--highlight">OpenAI API</span>
+                  <span class="stack__item">Docker</span>
+                  <span class="stack__item">HuggingFace</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Experience -->
+          <div class="about__experience" data-animate>
+            <h3 class="about__subtitle">Опыт</h3>
+            <div class="timeline">
+              <article class="timeline__item">
+                <div class="timeline__company">Фабрика ИТ</div>
+                <div class="timeline__period">май 2023 — н.в.</div>
+                <div class="timeline__role">Fullstack Developer</div>
+                <p class="timeline__desc">100% Lighthouse Performance, −40% время клиентских операций</p>
+              </article>
+              <article class="timeline__item">
+                <div class="timeline__company">Кит Актив</div>
+                <div class="timeline__period">май 2019 — май 2023</div>
+                <div class="timeline__role">Frontend Developer</div>
+                <p class="timeline__desc">TypeScript-миграция, культура code review</p>
+              </article>
+              <article class="timeline__item">
+                <div class="timeline__company">Ранее</div>
+                <div class="timeline__period">2011 — 2023</div>
+                <div class="timeline__role">Marketing / SMM / Content</div>
+                <p class="timeline__desc">6+ лет суммарного коммерческого опыта</p>
+              </article>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Approach Section -->
+    <section class="section section--alt" id="approach" aria-label="Как я работаю" data-animate>
+      <div class="container">
+        <p class="section-label">// approach</p>
+        <h2 class="section-title">Как я работаю</h2>
+
+        <div class="approach__grid">
+          <article class="approach__card" data-animate>
+            <h3 class="approach__card-title">Подход к задачам</h3>
+            <ul class="approach__list">
+              <li>Production-ready: безопасность, тестирование (Jest, Testing Library)</li>
+              <li>Масштабируемая архитектура (FSD-паттерн)</li>
+              <li>Data-driven оптимизации</li>
+              <li>Прозрачная коммуникация с клиентом</li>
+            </ul>
+          </article>
+
+          <article class="approach__card" data-animate>
+            <h3 class="approach__card-title">AI в работе</h3>
+            <ul class="approach__list">
+              <li>Anthropic Claude, OpenAI API, HuggingFace с fallback-цепочками</li>
+              <li>AI-чатботы и генерация контента</li>
+              <li>Автоматизация рутинных процессов</li>
+              <li>Claude Code для планирования и реализации задач</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Cases Section -->
+    <section class="section" id="cases" aria-label="Проекты" data-animate>
+      <div class="container">
+        <p class="section-label">// cases</p>
+        <h2 class="section-title">Проекты</h2>
+
+        <div class="cases__grid">
+          <!-- Featured card -->
+          <article class="case-card case-card--featured" data-animate>
+            <div class="case-card__content">
+              <p class="case-card__category">AI · No-code · Telegram</p>
+              <h3 class="case-card__title">Telegram Shops</h3>
+              <p class="case-card__description">
+                No-code платформа с AI-ассистентами для создания Telegram-магазинов.
+                Полный цикл: от онбординга до управления заказами.
+              </p>
+              <div class="case-card__tags">
+                <span class="case-card__tag">Node.js</span>
+                <span class="case-card__tag">Telegram Bot SDK</span>
+                <span class="case-card__tag">OpenAI</span>
+                <span class="case-card__tag">PostgreSQL</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="case-card" data-animate>
+            <p class="case-card__category">Fullstack · AI</p>
+            <h3 class="case-card__title">AI Chat</h3>
+            <p class="case-card__description">
+              Real-time чат с OpenAI интеграцией и WebSocket-соединением.
+            </p>
+            <div class="case-card__tags">
+              <span class="case-card__tag">React</span>
+              <span class="case-card__tag">WebSockets</span>
+              <span class="case-card__tag">OpenAI</span>
+            </div>
+          </article>
+
+          <article class="case-card" data-animate>
+            <p class="case-card__category">HR · AI · Analytics</p>
+            <h3 class="case-card__title">WandaAsk</h3>
+            <p class="case-card__description">
+              HR-платформа с персонализированным AI и аналитическими дашбордами.
+            </p>
+            <div class="case-card__tags">
+              <span class="case-card__tag">Next.js</span>
+              <span class="case-card__tag">Prisma</span>
+              <span class="case-card__tag">Claude</span>
+            </div>
+          </article>
+
+          <article class="case-card" data-animate>
+            <p class="case-card__category">Telegram · Production</p>
+            <h3 class="case-card__title">Intercity Taxi Bot</h3>
+            <p class="case-card__description">
+              Production Telegram-бот с distributed locks и BullMQ очередями.
+            </p>
+            <div class="case-card__tags">
+              <span class="case-card__tag">Node.js</span>
+              <span class="case-card__tag">BullMQ</span>
+              <span class="case-card__tag">Redis</span>
+            </div>
+          </article>
+
+          <article class="case-card" data-animate>
+            <p class="case-card__category">SaaS · Multi-tenant</p>
+            <h3 class="case-card__title">Medical Equipment SaaS</h3>
+            <p class="case-card__description">
+              Multi-tenant SaaS для управления медоборудованием. Снижение простоев на 25–30%.
+            </p>
+            <div class="case-card__tags">
+              <span class="case-card__tag">React</span>
+              <span class="case-card__tag">PostgreSQL</span>
+              <span class="case-card__tag">Docker</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contacts Section -->
+    <section class="section section--alt" id="contacts" aria-label="Контакты" data-animate>
+      <div class="container">
+        <p class="section-label">// contacts</p>
+        <h2 class="section-title">Напишите мне</h2>
+        <p class="contacts__subtitle">
+          Открыт к коммерческим проектам и интересным задачам.
+          Отвечаю в Telegram или по форме ниже.
+        </p>
+
+        <div class="contacts__grid">
+          <div class="contacts__info">
+            <a href="https://t.me/berghub" class="contacts__link" target="_blank" rel="noopener noreferrer" aria-label="Telegram @berghub">
+              <svg width="20" height="20" aria-hidden="true"><use href="#icon-telegram"/></svg>
+              @berghub
+            </a>
+          </div>
+
+          <form
+            class="form"
+            id="contact-form"
+            novalidate
+            data-state="idle"
+            aria-label="Форма обратной связи"
+          >
+            <!-- Name -->
+            <div class="form__field">
+              <label for="field-name" class="form__label">
+                Имя <span class="form__required" aria-hidden="true">*</span>
+              </label>
+              <input
+                type="text"
+                id="field-name"
+                name="name"
+                class="form__input"
+                required
+                aria-required="true"
+                aria-describedby="error-name"
+                autocomplete="given-name"
+                placeholder="Александр"
+              >
+              <span id="error-name" class="form__error" role="alert" aria-live="polite"></span>
+            </div>
+
+            <!-- Phone -->
+            <div class="form__field">
+              <label for="field-phone" class="form__label">
+                Телефон <span class="form__required" aria-hidden="true">*</span>
+              </label>
+              <input
+                type="tel"
+                id="field-phone"
+                name="phone"
+                class="form__input"
+                required
+                aria-required="true"
+                aria-describedby="error-phone"
+                autocomplete="tel"
+                placeholder="+7 900 000 00 00"
+              >
+              <span id="error-phone" class="form__error" role="alert" aria-live="polite"></span>
+            </div>
+
+            <!-- Email -->
+            <div class="form__field">
+              <label for="field-email" class="form__label">
+                Email <span class="form__required" aria-hidden="true">*</span>
+              </label>
+              <input
+                type="email"
+                id="field-email"
+                name="email"
+                class="form__input"
+                required
+                aria-required="true"
+                aria-describedby="error-email"
+                autocomplete="email"
+                placeholder="you@example.com"
+              >
+              <span id="error-email" class="form__error" role="alert" aria-live="polite"></span>
+            </div>
+
+            <!-- Comment -->
+            <div class="form__field">
+              <label for="field-comment" class="form__label">
+                Комментарий <span class="form__required" aria-hidden="true">*</span>
+              </label>
+              <textarea
+                id="field-comment"
+                name="comment"
+                class="form__textarea"
+                required
+                aria-required="true"
+                aria-describedby="error-comment"
+                rows="4"
+                placeholder="Расскажите о задаче..."
+              ></textarea>
+              <span id="error-comment" class="form__error" role="alert" aria-live="polite"></span>
+            </div>
+
+            <!-- Honeypot — hidden from real users -->
+            <div class="form__honeypot" aria-hidden="true">
+              <label for="field-website">Website</label>
+              <input
+                type="text"
+                id="field-website"
+                name="website"
+                tabindex="-1"
+                autocomplete="off"
+              >
+            </div>
+
+            <!-- Timing field (set by JS) -->
+            <input type="hidden" name="_formLoadTime" id="field-load-time" value="0">
+
+            <!-- Feedback banners -->
+            <div class="form__feedback form__feedback--success" role="status" aria-live="polite">
+              <svg width="16" height="16" aria-hidden="true"><use href="#icon-check"/></svg>
+              Сообщение отправлено! Ожидайте ответа.
+            </div>
+            <div class="form__feedback form__feedback--error" role="alert" aria-live="assertive">
+              <svg width="16" height="16" aria-hidden="true"><use href="#icon-alert"/></svg>
+              <span class="form__error-text">Не удалось отправить. Попробуйте ещё раз.</span>
+            </div>
+
+            <button type="submit" class="btn btn--primary form__submit" id="submit-btn">
+              <span class="btn__text">Отправить</span>
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p class="footer__text">
+        © 2026 Вячеслав Попов · Fullstack Engineer
+      </p>
+      <a href="https://t.me/berghub" class="footer__link" target="_blank" rel="noopener noreferrer" aria-label="Telegram">
+        <svg width="18" height="18" aria-hidden="true"><use href="#icon-telegram"/></svg>
+      </a>
+    </div>
+  </footer>
+
+  <script type="module" src="/ts/main.ts"></script>
+</body>
+</html>
